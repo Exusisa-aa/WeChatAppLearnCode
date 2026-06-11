@@ -1,0 +1,54 @@
+<view class="search-container">
+  <!-- 搜索框 -->
+  <view class="search-header">
+    <view class="search-box">
+      <input 
+        type="text" 
+        class="search-input" 
+        placeholder="搜索城市"
+        value="{{searchValue}}"
+        bindinput="onSearchInput"
+      />
+      <view class="search-icon" bindtap="clearSearch">
+        <text wx:if="{{searchValue}}"></text>
+        <text wx:else>🔍</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果列表 -->
+  <view class="search-results" wx:if="{{searchValue}}">
+    <view 
+      wx:for="{{cityList}}" 
+      wx:key="code" 
+      class="city-item"
+      bindtap="selectCity"
+      data-city="{{item.code}}"
+    >
+      <view class="city-name">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- 所有城市 -->
+  <view class="hot-cities-section" wx:if="{{!searchValue}}">
+    <view class="section-header">
+      <text class="section-title">所有城市</text>
+    </view>
+    <view class="hot-cities-grid">
+      <view 
+        wx:for="{{cityList}}" 
+        wx:key="code" 
+        class="hot-city-item"
+        bindtap="selectCity"
+        data-city="{{item.code}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索为空时的提示 -->
+  <view class="empty-result" wx:if="{{searchValue && cityList.length === 0}}">
+    <text>没有找到相关城市</text>
+  </view>
+</view>

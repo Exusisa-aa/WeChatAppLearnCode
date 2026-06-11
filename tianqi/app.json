@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarTitleText": "天气预报",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "天气",
+      "iconPath": "/images/blackWeather.png",
+      "selectedIconPath": "/images/whiteWeather.png"
+    },{
+      "pagePath": "pages/search/search",
+      "text": "城市",
+      "iconPath": "/images/blackCity.png",
+      "selectedIconPath": "/images/whiteCity.png"
+    }]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

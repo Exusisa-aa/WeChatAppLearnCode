@@ -1,0 +1,98 @@
+<view class="container">
+  <!-- 顶部 -->
+  <view class="top-box">
+    <view class="cityName">{{todayWeather.area}}</view>
+    <view class="title">
+      <text class="dateShort">{{todayWeather.dateShort}}</text>
+      <text class="calendar">农历 {{todayWeather.dateLunar}}</text>
+    </view>
+  </view>
+
+    <!-- 当前天气 -->
+  <view class="outContainer">
+  <view class="weather-box">
+    <view class="tem-box">
+      <text class="temp">
+        <text class="temperature">{{todayWeather.temperature}}</text>
+        <text class="rightTop">°C</text>
+      </text>
+    </view>
+    <view class="climate-box">
+      <view class="air">
+        <text class="psPm25">{{todayWeather.psPm25}}</text>
+        <text class="psPm25Level">{{todayWeather.psPm25Level}}</text>
+      </view>
+      <view class="weather-list">
+        <view class="weather-info">
+          <image src="{{todayWeather.weatherImg}}" class="weatherImg" mode="aspectFit"></image>
+          <text class="weather">{{todayWeather.weather}}</text>
+        </view>
+        <view class="wind-info">
+          <text class="windDirection">{{todayWeather.windDirection}}</text>
+          <text class="windPower">{{todayWeather.windPower}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="today-weather">
+    <view class="range-box">
+      <text>今天：</text>
+      <text class="range">
+        <text class="weather">{{todayWeather.weather}}</text>
+        <text class="temNight">{{todayWeather.todayWeather.temNight}}</text>
+        <text>-</text>
+        <text class="temDay">{{todayWeather.todayWeather.temDay}}</text>
+        <text>℃</text>
+      </text>
+    </view>
+    <view class="sun-list">
+      <view class="sun-item">
+        <text>紫外线</text>
+        <text class="ultraviolet">弱</text>
+      </view>
+      <view class="sun-item">
+        <text>湿度</text>
+        <text class="humidity">{{todayWeather.todayWeather.humidity}}%</text>
+      </view>
+      <view class="sun-item">
+        <text>日出</text>
+        <text class="sunriseTime">{{todayWeather.todayWeather.sunriseTime}}</text>
+      </view>
+      <view class="sun-item">
+        <text>日落</text>
+        <text class="sunsetTime">{{todayWeather.todayWeather.sunsetTime}}</text>
+      </view>
+    </view>
+  </view>
+  </view>
+  
+
+  <!-- 周天气预报 -->
+  <view class="week-weather-box">
+    <view class="title">7日内天气预报</view>
+    <view class="week-wrap">
+      <view 
+        wx:for="{{weekWeather}}" 
+        wx:key="code" 
+        class="item"
+      >
+        <view class="date-box">
+          <text class="dateFormat">{{item.dateFormat}}</text>
+          <text class="date">{{item.date}}</text>
+        </view>
+        <image src="{{item.weatherImg}}" class="weatherImg" mode="aspectFit"></image>
+        <text class="weather">{{item.weather}}</text>
+        <view class="temp">
+          <text class="temNight">{{item.temNight}}</text>-
+          <text class="temDay">{{item.temDay}}</text>
+          <text>℃</text>
+        </view>
+        <view class="wind">
+          <text class="windDirection">{{item.windDirection}}</text>
+          <text class="windPower">{{item.windPower}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
